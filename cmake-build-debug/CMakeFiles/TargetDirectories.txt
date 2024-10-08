@@ -1,0 +1,3 @@
+C:/Users/DataC/Documents/UNIFAGOC/exercicioDeLista/cmake-build-debug/CMakeFiles/exercicioDeLista.dir
+C:/Users/DataC/Documents/UNIFAGOC/exercicioDeLista/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/DataC/Documents/UNIFAGOC/exercicioDeLista/cmake-build-debug/CMakeFiles/rebuild_cache.dir
