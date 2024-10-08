@@ -128,25 +128,28 @@ bool Lista_Inserir(string Elemento, int Posicao) {
     }
 }
 
-bool Lista_Inserir_Ordenado(string & Elemento) {
-    TipoCelula *Novo = (TipoCelula *) malloc(sizeof(TipoCelula));
-    if (Novo == NULL) return false;
+bool Lista_Inserir_Ordenado(string &Elemento) {
+    TipoCelula *Novo, *Temp, *Anterior = NULL;
 
+    // Aloca memória para o novo nó
+    Novo = (TipoCelula *) malloc(sizeof(TipoCelula));
+    if (Novo == NULL) return false; // Verificação correta de alocação de memória
+
+    // Copia o valor do elemento para o campo Item
     Novo->Item = Elemento;
+    Novo->Prox = NULL;
 
-    // Caso a lista esteja vazia ou o elemento seja menor que o primeiro
+    // Caso a lista esteja vazia ou o elemento seja menor que o primeiro, insere no início
     if (Frente == NULL || Elemento < Frente->Item) {
         Novo->Prox = Frente;
         Frente = Novo;
-        if (Tras == NULL) Tras = Novo; // Se a lista estava vazia
+        if (Tras == NULL) Tras = Novo;  // Se a lista estava vazia, o novo nó também é o último
         Contador++;
         return true;
     }
 
-    TipoCelula *Temp = Frente;
-    TipoCelula *Anterior = NULL;
-
     // Percorre a lista para encontrar a posição correta
+    Temp = Frente;
     while (Temp != NULL && Temp->Item < Elemento) {
         Anterior = Temp;
         Temp = Temp->Prox;
@@ -156,7 +159,7 @@ bool Lista_Inserir_Ordenado(string & Elemento) {
     Anterior->Prox = Novo;
     Novo->Prox = Temp;
 
-    // Atualiza Tras se o novo nó for o último
+    // Se Temp for NULL, o novo nó é o último da lista
     if (Temp == NULL) Tras = Novo;
 
     Contador++;
@@ -165,12 +168,13 @@ bool Lista_Inserir_Ordenado(string & Elemento) {
 
 
 
+
 void Lista_Imprimir() {
     TipoCelula *Temp = Frente;
 
     // Percorre a lista até que Temp seja NULL (fim da lista)
     while (Temp != NULL) {
-        printf("%s -> ", Temp->Item);
+        printf("%s\n", Frente);
         Temp = Temp->Prox;
     }
 }

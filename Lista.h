@@ -22,7 +22,7 @@ int Lista_Tamanho();
 // bool Lista_Inserir_Inicio(int Elemento);
 // bool Lista_Inserir_Fim(int Elemento);
 // bool Lista_Inserir(int Elemento, int Posicao);
-bool Lista_Inserir_Ordenado(string Elemento);
+bool Lista_Inserir_Ordenado(string &Elemento);
 bool Lista_Remover_Inicio(int &Elemento);
 bool Lista_Remover_Fim(int &Elemento);
 bool Lista_Remover(int &Elemento, int Posicao);
